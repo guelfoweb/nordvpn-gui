@@ -28,7 +28,7 @@ disconnect(){
 
 countries(){
 	cities=$(nordvpn countries | cut -d\/ -f2 | tr '\t' '\n' | sed '/^$/d')
-	cities=$(echo $cities | sed 's/\s/|/g' | sed 's/^[^[:alnum:]]*//' | sed "s/^/$default_city|/")
+	cities=$(echo $cities | sed 's/\s/|/g' | sed 's/^[^[:alnum:]]*//' | sed "s/^/$default_city|/" | sed 's/,//g')
 }
 
 start(){
